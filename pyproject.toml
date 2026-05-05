@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "evo-hidden"
+version = "0.1.0"
+description = "Hidden-state extraction API for the Evo genomic foundation model (StripedHyena)"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Huilin Tai", email = "ht2666@columbia.edu" }]
+keywords = [
+    "genomics",
+    "foundation model",
+    "evo",
+    "stripedhyena",
+    "hidden states",
+    "representation learning",
+    "bioinformatics",
+    "AMR",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "torch>=2.0.0",
+    "transformers>=4.30.0",
+    "tokenizers>=0.13.0",
+    "einops>=0.6.0",
+    "numpy>=1.24.0",
+]
+
+[project.optional-dependencies]
+flash-attn = ["flash-attn>=2.0.0"]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/haleyyy2001/evo-hidden"
+Repository = "https://github.com/haleyyy2001/evo-hidden"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+pythonpath = ["src"]
